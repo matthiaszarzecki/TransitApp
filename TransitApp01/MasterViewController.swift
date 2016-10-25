@@ -12,13 +12,14 @@ class MasterViewController: UITableViewController {
 
   var detailViewController: DetailViewController? = nil
   var objects = [Route]()
-  var transitData: NSDictionary? = nil
+  //var transitData: NSDictionary? = nil
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    transitData = getTransitData()
-    setupRoutes()
+    if let tansitData = getTransitData() {
+      setupRoutes(transitData: tansitData)
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -36,8 +37,8 @@ class MasterViewController: UITableViewController {
     return Utilities.getJSonFileAsDictionary(Constants.Data)
   }
   
-  func setupRoutes() {
-    if let routes: [AnyObject] = transitData![Constants.Routes] as? [AnyObject] {
+  func setupRoutes(transitData: NSDictionary) {
+    if let routes: [AnyObject] = transitData[Constants.Routes] as? [AnyObject] {
       for route in routes {
         objects.append(createRouteObject(data: route))
       }
