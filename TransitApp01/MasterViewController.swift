@@ -11,7 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
   var detailViewController: DetailViewController? = nil
-  var objects = [String]()
+  var objects = [Route]()
   var transitData: NSDictionary? = nil
 
   override func viewDidLoad() {
@@ -80,7 +80,7 @@ class MasterViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
     let object = objects[(indexPath as NSIndexPath).row]
-    cell.textLabel!.text = object
+    cell.textLabel!.text = "\(object.type) \(object.provider)"
     return cell
   }
 

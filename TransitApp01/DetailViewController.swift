@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
 
   @IBOutlet weak var detailImageView: UIImageView!
   
-  var detailItem: String? {
+  var detailItem: Route? {
     didSet {
       self.configureView()
     }
