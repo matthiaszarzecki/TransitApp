@@ -18,8 +18,9 @@ class MasterViewController: UITableViewController {
     super.viewDidLoad()
     
     transitData = getTransitData()
+    setupRoutes()
   }
-
+  
   override func viewWillAppear(_ animated: Bool) {
     self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
     super.viewWillAppear(animated)
@@ -33,6 +34,22 @@ class MasterViewController: UITableViewController {
   
   func getTransitData() -> NSDictionary? {
     return Utilities.getJSonFileAsDictionary("data")
+  }
+  
+  func setupRoutes() {
+    if let routes: [AnyObject] = transitData!["routes"] as? [AnyObject] {
+      for route in routes {
+        let newRoute = Route()
+        
+        newRoute.type = (route["type"] as? String) ?? ""
+        newRoute.provider = (route["provider"] as? String) ?? ""
+        newRoute.properties = (route["properties"] as? String) ?? ""
+        newRoute.price = (route["price"] as? Dictionary<String, AnyObject>) ?? nil
+        newRoute.segments = (route["segments"] as? Array<AnyObject>) ?? nil
+        
+        objects.append(newRoute)
+      }
+    }
   }
 
   // MARK: - Segues
