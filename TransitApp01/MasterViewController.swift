@@ -39,17 +39,21 @@ class MasterViewController: UITableViewController {
   func setupRoutes() {
     if let routes: [AnyObject] = transitData![Constants.Routes] as? [AnyObject] {
       for route in routes {
-        let newRoute = Route()
-        
-        newRoute.type = (route[Constants.RouteType] as? String) ?? ""
-        newRoute.provider = (route[Constants.Provider] as? String) ?? ""
-        newRoute.properties = (route[Constants.Properties] as? String) ?? ""
-        newRoute.price = (route[Constants.Price] as? Dictionary<String, AnyObject>) ?? nil
-        newRoute.segments = (route[Constants.Segments] as? Array<AnyObject>) ?? nil
-        
-        objects.append(newRoute)
+        objects.append(createRouteObject(data: route))
       }
     }
+  }
+  
+  func createRouteObject(data: AnyObject) -> Route {
+    let newRoute = Route()
+    
+    newRoute.type = (data[Constants.RouteType] as? String) ?? ""
+    newRoute.provider = (data[Constants.Provider] as? String) ?? ""
+    newRoute.properties = (data[Constants.Properties] as? String) ?? ""
+    newRoute.price = (data[Constants.Price] as? Dictionary<String, AnyObject>) ?? nil
+    newRoute.segments = (data[Constants.Segments] as? Array<AnyObject>) ?? nil
+    
+    return newRoute
   }
 
   // MARK: - Segues

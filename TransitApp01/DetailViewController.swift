@@ -10,7 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-  @IBOutlet weak var nameDisplay: UILabel!
+  @IBOutlet weak var name: UILabel!
+  @IBOutlet weak var price: UILabel!
   
   var detailItem: Route? {
     didSet {
@@ -20,10 +21,26 @@ class DetailViewController: UIViewController {
 
   func configureView() {
     if let detail = self.detailItem {
-      if let name = self.nameDisplay {
-        name.text = "\(detail.type) \(detail.provider)"
+      if let nameDisplay = self.name {
+        nameDisplay.text = "\(detail.type) \(detail.provider)"
+      }
+      
+      if let priceDisplay = self.price {
+        priceDisplay.text = getPriceString(route: detail)
       }
     }
+  }
+  
+  func getPriceString(route: Route) -> String {
+    if let priceDetail = route.price {
+      let formatter = NumberFormatter()
+      formatter.numberStyle = .currency
+      formatter.currencyCode = (priceDetail["currency"] as? String) ?? "EUR"
+      if let amount = priceDetail["amount"] as? Double {
+        return formatter.string(from: NSNumber(value: amount * 0.01))!
+      }
+    }
+    return ""
   }
 
   override func viewDidLoad() {
