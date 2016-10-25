@@ -16,6 +16,7 @@
 		6E5B737B1DC0030000A02E15 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B737A1DC0030000A02E15 /* Utilities.swift */; };
 		6E5B737D1DC003BE00A02E15 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E5B737C1DC003BE00A02E15 /* data.json */; };
 		6E5B737F1DC0063300A02E15 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B737E1DC0063300A02E15 /* Route.swift */; };
+		6E5B73811DC00C6200A02E15 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B73801DC00C6200A02E15 /* Constants.swift */; };
 		6EE565711DBFCF1100A13031 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3907AD991C6B33D1003A1709 /* Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		6E5B737A1DC0030000A02E15 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6E5B737C1DC003BE00A02E15 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		6E5B737E1DC0063300A02E15 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		6E5B73801DC00C6200A02E15 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				3907AD8B1C6B33D1003A1709 /* AppDelegate.swift */,
 				3907AD8D1C6B33D1003A1709 /* MasterViewController.swift */,
+				6E5B73801DC00C6200A02E15 /* Constants.swift */,
 				6E5B737E1DC0063300A02E15 /* Route.swift */,
 				6E5B737C1DC003BE00A02E15 /* data.json */,
 				3907AD8F1C6B33D1003A1709 /* DetailViewController.swift */,
@@ -156,6 +159,7 @@
 				6E5B737B1DC0030000A02E15 /* Utilities.swift in Sources */,
 				6E5B737F1DC0063300A02E15 /* Route.swift in Sources */,
 				3907AD8C1C6B33D1003A1709 /* AppDelegate.swift in Sources */,
+				6E5B73811DC00C6200A02E15 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

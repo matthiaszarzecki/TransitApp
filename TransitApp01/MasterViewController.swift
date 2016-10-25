@@ -33,19 +33,19 @@ class MasterViewController: UITableViewController {
   // MARK: - Private Methods
   
   func getTransitData() -> NSDictionary? {
-    return Utilities.getJSonFileAsDictionary("data")
+    return Utilities.getJSonFileAsDictionary(Constants.Data)
   }
   
   func setupRoutes() {
-    if let routes: [AnyObject] = transitData!["routes"] as? [AnyObject] {
+    if let routes: [AnyObject] = transitData![Constants.Routes] as? [AnyObject] {
       for route in routes {
         let newRoute = Route()
         
-        newRoute.type = (route["type"] as? String) ?? ""
-        newRoute.provider = (route["provider"] as? String) ?? ""
-        newRoute.properties = (route["properties"] as? String) ?? ""
-        newRoute.price = (route["price"] as? Dictionary<String, AnyObject>) ?? nil
-        newRoute.segments = (route["segments"] as? Array<AnyObject>) ?? nil
+        newRoute.type = (route[Constants.RouteType] as? String) ?? ""
+        newRoute.provider = (route[Constants.Provider] as? String) ?? ""
+        newRoute.properties = (route[Constants.Properties] as? String) ?? ""
+        newRoute.price = (route[Constants.Price] as? Dictionary<String, AnyObject>) ?? nil
+        newRoute.segments = (route[Constants.Segments] as? Array<AnyObject>) ?? nil
         
         objects.append(newRoute)
       }
