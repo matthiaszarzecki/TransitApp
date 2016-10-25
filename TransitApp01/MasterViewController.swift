@@ -12,9 +12,12 @@ class MasterViewController: UITableViewController {
 
   var detailViewController: DetailViewController? = nil
   var objects = [String]()
+  var transitData: NSDictionary? = nil
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    transitData = getTransitData()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +27,12 @@ class MasterViewController: UITableViewController {
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
+  }
+  
+  // MARK: - Private Methods
+  
+  func getTransitData() -> NSDictionary? {
+    return Utilities.getJSonFileAsDictionary("data")
   }
 
   // MARK: - Segues
