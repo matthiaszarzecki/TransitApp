@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-  @IBOutlet weak var detailImageView: UIImageView!
+  @IBOutlet weak var nameDisplay: UILabel!
   
   var detailItem: Route? {
     didSet {
@@ -19,6 +19,11 @@ class DetailViewController: UIViewController {
   }
 
   func configureView() {
+    if let detail = self.detailItem {
+      if let name = self.nameDisplay {
+        name.text = "\(detail.type) \(detail.provider)"
+      }
+    }
   }
 
   override func viewDidLoad() {
