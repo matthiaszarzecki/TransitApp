@@ -134,18 +134,25 @@
                                     <frame key="frameInset" width="375" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q17-FO-waI">
-                                            <frame key="frameInset" minX="8" minY="24" width="244" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q17-FO-waI">
+                                            <frame key="frameInset" minX="8" minY="24" width="206" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <webView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uAC-0A-fOO">
-                                            <frame key="frameInset" minX="287" width="80" height="71"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <webView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uAC-0A-fOO">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="GOg-U6-odB"/>
+                                                <constraint firstAttribute="height" constant="71" id="pKW-2e-Hgv"/>
+                                            </constraints>
                                         </webView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uAC-0A-fOO" firstAttribute="trailing" secondItem="37f-cq-3Eg" secondAttribute="trailingMargin" id="3Qg-QT-ssJ"/>
+                                        <constraint firstItem="q17-FO-waI" firstAttribute="centerY" secondItem="37f-cq-3Eg" secondAttribute="centerY" id="NC1-Ah-dUg"/>
+                                        <constraint firstItem="uAC-0A-fOO" firstAttribute="centerY" secondItem="37f-cq-3Eg" secondAttribute="centerY" constant="1.5" id="eDI-ps-yh1"/>
+                                        <constraint firstItem="q17-FO-waI" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" id="kcu-Jy-fLY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
