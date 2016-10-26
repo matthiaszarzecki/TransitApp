@@ -97,10 +97,9 @@ class MasterViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RouteCell
     let object = objects[(indexPath as NSIndexPath).row]
-    cell.textLabel!.text = object.display_name != nil ? object.display_name : "\(object.type) \(object.provider)"
+    cell.displayName!.text = object.display_name != nil ? object.display_name : "\(object.type) \(object.provider)"
     return cell
   }
 
