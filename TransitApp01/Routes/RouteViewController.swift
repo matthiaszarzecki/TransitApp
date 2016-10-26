@@ -10,7 +10,6 @@ import UIKit
 
 class RouteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-  @IBOutlet weak var name: UILabel!
   @IBOutlet weak var price: UILabel!
   @IBOutlet weak var disclaimer: UILabel!
   @IBOutlet weak var providerIcon: UIWebView!
@@ -22,7 +21,6 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
 
   func configureView() {
     if let detail = self.detailItem {
-      name.text = Route.getDisplayName(route: detail)
       price.text = Route.getPriceString(route: detail)
       disclaimer.text = detail.disclaimer ?? ""
       
@@ -45,12 +43,10 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.hidesBarsOnTap = true
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    navigationController?.hidesBarsOnTap = false
   }
 
   override func didReceiveMemoryWarning() {
