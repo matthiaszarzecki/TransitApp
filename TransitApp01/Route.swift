@@ -16,6 +16,13 @@ class Route {
   var price: Dictionary<String, AnyObject>?
   var segments: Array<AnyObject>?
   
+  var provider_icon_url: String?
+  var disclaimer: String?
+  var ios_itunes_url: String?
+  var ios_app_url: String?
+  var android_package_name: String?
+  var display_name: String?
+  
   init() {
   }
   

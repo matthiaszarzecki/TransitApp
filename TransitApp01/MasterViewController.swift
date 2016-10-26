@@ -12,7 +12,6 @@ class MasterViewController: UITableViewController {
 
   var detailViewController: DetailViewController? = nil
   var objects = [Route]()
-  //var transitData: NSDictionary? = nil
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,23 +37,40 @@ class MasterViewController: UITableViewController {
   }
   
   func setupRoutes(transitData: NSDictionary) {
-    if let routes: [AnyObject] = transitData[Constants.Routes] as? [AnyObject] {
-      for route in routes {
-        objects.append(createRouteObject(data: route))
+    
+    if let allProviderAttributes = transitData[Constants.ProviderAttributes] as? Dictionary<String, AnyObject> {
+      if let routes = transitData[Constants.Routes] as? [AnyObject] {
+        for route in routes {
+          objects.append(createRouteObject(data: route, allProviderAttributes: allProviderAttributes))
+        }
       }
     }
   }
   
-  func createRouteObject(data: AnyObject) -> Route {
+  func createRouteObject(data: AnyObject, allProviderAttributes: Dictionary<String, AnyObject>) -> Route {
     let newRoute = Route()
-    
     newRoute.type = (data[Constants.RouteType] as? String) ?? ""
     newRoute.provider = (data[Constants.Provider] as? String) ?? ""
     newRoute.properties = (data[Constants.Properties] as? String) ?? ""
     newRoute.price = (data[Constants.Price] as? Dictionary<String, AnyObject>) ?? nil
     newRoute.segments = (data[Constants.Segments] as? Array<AnyObject>) ?? nil
     
+    let providerAttributes = getProviderAttributes(id: newRoute.provider, allProviderAttributes: allProviderAttributes)
+    newRoute.provider_icon_url = (providerAttributes["provider_icon_url"] ?? nil)
+    newRoute.disclaimer = (providerAttributes["disclaimer"] ?? nil)
+    newRoute.ios_itunes_url = (providerAttributes["ios_itunes_url"] ?? nil)
+    newRoute.ios_app_url = (providerAttributes["ios_app_url"] ?? nil)
+    newRoute.android_package_name = (providerAttributes["android_package_name"] ?? nil)
+    newRoute.display_name = (providerAttributes["display_name"] ?? nil)
+
     return newRoute
+  }
+  
+  func getProviderAttributes(id: String, allProviderAttributes: Dictionary<String, AnyObject>) -> Dictionary<String, String> {
+    if let attributes = allProviderAttributes[id] as? Dictionary<String, String> {
+      return attributes
+    }
+    return Dictionary<String, String>()
   }
 
   // MARK: - Segues
