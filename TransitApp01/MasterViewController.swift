@@ -33,12 +33,12 @@ class MasterViewController: UITableViewController {
   // MARK: - Private Methods
   
   func getTransitData() -> NSDictionary? {
-    return Utilities.getJSonFileAsDictionary(Constants.Data)
+    return Utilities.getJSonFileAsDictionary(Keys.Data)
   }
   
   func setupRoutes(transitData: NSDictionary) {
-    if let allProviderAttributes = transitData[Constants.ProviderAttributes] as? Dictionary<String, AnyObject> {
-      if let routes = transitData[Constants.Routes] as? [AnyObject] {
+    if let allProviderAttributes = transitData[Keys.ProviderAttributes] as? Dictionary<String, AnyObject> {
+      if let routes = transitData[Keys.Routes] as? [AnyObject] {
         for route in routes {
           objects.append(createRouteObject(data: route, allProviderAttributes: allProviderAttributes))
         }
@@ -48,19 +48,19 @@ class MasterViewController: UITableViewController {
   
   func createRouteObject(data: AnyObject, allProviderAttributes: Dictionary<String, AnyObject>) -> Route {
     let newRoute = Route()
-    newRoute.type = (data[Constants.RouteType] as? String) ?? ""
-    newRoute.provider = (data[Constants.Provider] as? String) ?? ""
-    newRoute.properties = (data[Constants.Properties] as? String) ?? ""
-    newRoute.price = (data[Constants.Price] as? Dictionary<String, AnyObject>) ?? nil
-    newRoute.segments = (data[Constants.Segments] as? Array<AnyObject>) ?? nil
+    newRoute.type = (data[Keys.RouteType] as? String) ?? ""
+    newRoute.provider = (data[Keys.Provider] as? String) ?? ""
+    newRoute.properties = (data[Keys.Properties] as? String) ?? ""
+    newRoute.price = (data[Keys.Price] as? Dictionary<String, AnyObject>) ?? nil
+    newRoute.segments = (data[Keys.Segments] as? Array<AnyObject>) ?? nil
     
     let providerAttributes = getProviderAttributes(id: newRoute.provider, allProviderAttributes: allProviderAttributes)
-    newRoute.provider_icon_url = (providerAttributes[Constants.ProviderIconURL] ?? nil)
-    newRoute.disclaimer = (providerAttributes[Constants.Disclaimer] ?? nil)
-    newRoute.ios_itunes_url = (providerAttributes[Constants.IOSiTunesURL] ?? nil)
-    newRoute.ios_app_url = (providerAttributes[Constants.IOSAppURL] ?? nil)
-    newRoute.android_package_name = (providerAttributes[Constants.AndroidPackageName] ?? nil)
-    newRoute.display_name = (providerAttributes[Constants.DisplayName] ?? nil)
+    newRoute.provider_icon_url = (providerAttributes[Keys.ProviderIconURL] ?? nil)
+    newRoute.disclaimer = (providerAttributes[Keys.Disclaimer] ?? nil)
+    newRoute.ios_itunes_url = (providerAttributes[Keys.IOSiTunesURL] ?? nil)
+    newRoute.ios_app_url = (providerAttributes[Keys.IOSAppURL] ?? nil)
+    newRoute.android_package_name = (providerAttributes[Keys.AndroidPackageName] ?? nil)
+    newRoute.display_name = (providerAttributes[Keys.DisplayName] ?? nil)
 
     return newRoute
   }
@@ -100,6 +100,11 @@ class MasterViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RouteCell
     let object = objects[(indexPath as NSIndexPath).row]
     cell.displayName!.text = object.display_name != nil ? object.display_name : "\(object.type) \(object.provider)"
+    if let url = object.provider_icon_url {
+      if let image = Utilities.getImageFromURL(url: url) {
+        cell.displayIcon!.image = image
+      }
+    }
     return cell
   }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Constants {
+struct Keys {
   
   static let ProviderAttributes = "provider_attributes"
   static let Routes = "routes"
@@ -26,5 +26,20 @@ struct Constants {
   static let IOSAppURL = "ios_app_url"
   static let AndroidPackageName = "android_package_name"
   static let DisplayName = "display_name"
+  
+  static let Currency = "currency"
+  static let Amount = "amount"
+  
+}
+
+struct Defaults {
+  
+  static let Currency = "EUR"
+  
+}
+
+struct Texts {
+  
+  static let NoPrice = "Free!"
   
 }

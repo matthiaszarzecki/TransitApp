@@ -34,15 +34,18 @@ class DetailViewController: UIViewController {
   }
   
   func getPriceString(route: Route) -> String {
+    var priceString = ""
+    
     if let priceDetail = route.price {
       let formatter = NumberFormatter()
       formatter.numberStyle = .currency
-      formatter.currencyCode = (priceDetail["currency"] as? String) ?? "EUR"
-      if let amount = priceDetail["amount"] as? Double {
-        return formatter.string(from: NSNumber(value: amount * 0.01))!
+      formatter.currencyCode = (priceDetail[Keys.Currency] as? String) ?? Defaults.Currency
+      if let amount = priceDetail[Keys.Amount] as? Double {
+        priceString = formatter.string(from: NSNumber(value: amount * 0.01))!
       }
     }
-    return ""
+    
+    return priceString != "" ? priceString : Texts.NoPrice
   }
   
   // MARK: - View Functions
