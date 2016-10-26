@@ -55,12 +55,12 @@ class MasterViewController: UITableViewController {
     newRoute.segments = (data[Constants.Segments] as? Array<AnyObject>) ?? nil
     
     let providerAttributes = getProviderAttributes(id: newRoute.provider, allProviderAttributes: allProviderAttributes)
-    newRoute.provider_icon_url = (providerAttributes["provider_icon_url"] ?? nil)
-    newRoute.disclaimer = (providerAttributes["disclaimer"] ?? nil)
-    newRoute.ios_itunes_url = (providerAttributes["ios_itunes_url"] ?? nil)
-    newRoute.ios_app_url = (providerAttributes["ios_app_url"] ?? nil)
-    newRoute.android_package_name = (providerAttributes["android_package_name"] ?? nil)
-    newRoute.display_name = (providerAttributes["display_name"] ?? nil)
+    newRoute.provider_icon_url = (providerAttributes[Constants.ProviderIconURL] ?? nil)
+    newRoute.disclaimer = (providerAttributes[Constants.Disclaimer] ?? nil)
+    newRoute.ios_itunes_url = (providerAttributes[Constants.IOSiTunesURL] ?? nil)
+    newRoute.ios_app_url = (providerAttributes[Constants.IOSAppURL] ?? nil)
+    newRoute.android_package_name = (providerAttributes[Constants.AndroidPackageName] ?? nil)
+    newRoute.display_name = (providerAttributes[Constants.DisplayName] ?? nil)
 
     return newRoute
   }

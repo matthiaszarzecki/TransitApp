@@ -20,4 +20,11 @@ struct Constants {
   static let Segments = "segments"
   static let Price = "price"
   
+  static let ProviderIconURL = "provider_icon_url"
+  static let Disclaimer = "Disclaimer"
+  static let IOSiTunesURL = "ios_itunes_url"
+  static let IOSAppURL = "ios_app_url"
+  static let AndroidPackageName = "android_package_name"
+  static let DisplayName = "display_name"
+  
 }
