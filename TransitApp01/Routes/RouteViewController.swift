@@ -30,21 +30,26 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
       
       for segment in detail.segments! {
         if let segmentData = segment as? Dictionary<String, AnyObject> {
-          let newSegment = RouteSegment()
-          newSegment.name = getSegmentName(segmentData: segmentData)
-          objects.append(newSegment)
+          objects.append(createRouteSegment(segmentData: segmentData))
         }
       }
     }
   }
   
-  func getSegmentName(segmentData: Dictionary<String, AnyObject>) -> String {
-    var name = ""
-    name += (segmentData["travel_mode"] as? String) ?? ""
-    name += (segmentData["name"] as? String) ?? ""
-    return name
+  func createRouteSegment(segmentData: Dictionary<String, AnyObject>) -> RouteSegment {
+    let newSegment = RouteSegment()
+    newSegment.description = (segmentData["description"] as? String) ?? ""
+    newSegment.numStops = (segmentData["num_stops"] as? Int) ?? 0
+    newSegment.color = (segmentData["color"] as? String) ?? ""
+    newSegment.iconURL = (segmentData["icon_url"] as? String) ?? ""
+    newSegment.polyline = (segmentData["polyline"] as? String) ?? ""
+    newSegment.travelMode = (segmentData["travel_mode"] as? String) ?? ""
+    newSegment.stops = (segmentData["stops"] as? Array<AnyObject>) ?? nil
+    newSegment.name = (segmentData["name"] as? String) ?? ""
+    newSegment.displayName = RouteSegment.getSegmentDisplayName(segment: newSegment)
+    return newSegment
   }
-  
+
   // MARK: - View Functions
 
   override func viewDidLoad() {
@@ -77,7 +82,7 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     let object = objects[(indexPath as NSIndexPath).row]
-    cell.textLabel?.text = object.title
+    cell.textLabel?.text = object.displayName
     return cell
   }
   

@@ -10,6 +10,7 @@ import Foundation
 
 class RouteSegment {
   
+  var displayName: String?
   var name: String?
   var numStops: Int?
   var travelMode: String?
@@ -17,8 +18,17 @@ class RouteSegment {
   var color: String?
   var iconURL: String?
   var polyline: String?
+  var stops: Array<AnyObject>?
   
   init() {
   }
+ 
+  // MARK: - Static Functions
   
+  static func getSegmentDisplayName(segment: RouteSegment) -> String {
+    var nameString = segment.travelMode ?? ""
+    nameString += nameString != "" ? " " : ""
+    nameString +=  segment.name ?? ""
+    return nameString
+  }
 }
