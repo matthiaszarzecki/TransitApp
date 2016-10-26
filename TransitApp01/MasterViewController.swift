@@ -37,7 +37,6 @@ class MasterViewController: UITableViewController {
   }
   
   func setupRoutes(transitData: NSDictionary) {
-    
     if let allProviderAttributes = transitData[Constants.ProviderAttributes] as? Dictionary<String, AnyObject> {
       if let routes = transitData[Constants.Routes] as? [AnyObject] {
         for route in routes {

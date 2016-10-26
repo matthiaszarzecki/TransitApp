@@ -18,6 +18,8 @@ class DetailViewController: UIViewController {
       self.configureView()
     }
   }
+  
+  // MARK: - Setup Functions
 
   func configureView() {
     if let detail = self.detailItem {
@@ -42,6 +44,8 @@ class DetailViewController: UIViewController {
     }
     return ""
   }
+  
+  // MARK: - View Functions
 
   override func viewDidLoad() {
     super.viewDidLoad()
