@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
   func configureView() {
     if let detail = self.detailItem {
       if let nameDisplay = self.name {
-        nameDisplay.text = "\(detail.type) \(detail.provider)"
+        nameDisplay.text = detail.display_name != nil ? detail.display_name : "\(detail.type) \(detail.provider)"
       }
       
       if let priceDisplay = self.price {
