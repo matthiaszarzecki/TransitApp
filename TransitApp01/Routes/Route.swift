@@ -10,9 +10,9 @@ import Foundation
 
 class Route {
   
-  var type: String = ""
-  var provider: String = ""
-  var properties: String = ""
+  var type = ""
+  var provider = ""
+  var properties = ""
   var price: Dictionary<String, AnyObject>?
   var segments: Array<AnyObject>?
   

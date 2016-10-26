@@ -8,18 +8,15 @@
 
 import UIKit
 
-class RouteViewController: UIViewController {
+class RouteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
   @IBOutlet weak var name: UILabel!
   @IBOutlet weak var price: UILabel!
   @IBOutlet weak var disclaimer: UILabel!
   @IBOutlet weak var providerIcon: UIWebView!
   
-  var detailItem: Route? {
-    didSet {
-      //self.configureView()
-    }
-  }
+  var detailItem: Route?
+  var objects = [RouteSegment]()
   
   // MARK: - Setup Functions
 
@@ -29,11 +26,13 @@ class RouteViewController: UIViewController {
       price.text = Route.getPriceString(route: detail)
       disclaimer.text = detail.disclaimer ?? ""
       
-      if let urlString = detailItem?.provider_icon_url {
-        if let url = URL(string: urlString) {
-          providerIcon.loadRequest(NSURLRequest(url: url) as URLRequest)
-        }
+      if let request = Route.getProviderIconRequestURL(route: detail) {
+        providerIcon.loadRequest(request)
       }
+      
+      let newSegment = RouteSegment()
+      newSegment.title = "Cell Title"
+      objects.append(newSegment)
     }
   }
   
@@ -56,6 +55,28 @@ class RouteViewController: UIViewController {
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
+  }
+  
+  // MARK: - TableView Functions
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return objects.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    let object = objects[(indexPath as NSIndexPath).row]
+    cell.textLabel?.text = object.title
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    // Return false if you do not want the specified item to be editable.
+    return true
   }
   
 }
