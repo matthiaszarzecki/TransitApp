@@ -52,9 +52,7 @@ class Route {
   
   static func getProviderIconRequestURL(route: Route) -> URLRequest? {
     if let urlString = route.providerIconURL {
-      if let url = URL(string: urlString) {
-        return NSURLRequest(url: url) as URLRequest
-      }
+      return Utilities.getURLRequest(url: urlString)
     }
     return nil
   }

@@ -21,4 +21,11 @@ class Utilities {
     return nil
   }
   
+  static func getURLRequest(url: String) -> URLRequest? {
+    if let url = URL(string: url) {
+      return NSURLRequest(url: url) as URLRequest
+    }
+    return nil
+  }
+  
 }

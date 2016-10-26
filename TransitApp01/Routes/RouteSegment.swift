@@ -47,9 +47,7 @@ class RouteSegment {
   
   static func getProviderIconRequestURL(route: RouteSegment) -> URLRequest? {
     if let urlString = route.iconURL {
-      if let url = URL(string: urlString) {
-        return NSURLRequest(url: url) as URLRequest
-      }
+      return Utilities.getURLRequest(url: urlString)
     }
     return nil
   }
