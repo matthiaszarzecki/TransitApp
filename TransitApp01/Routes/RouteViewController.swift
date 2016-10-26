@@ -80,9 +80,13 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RouteSegmentCell
     let object = objects[(indexPath as NSIndexPath).row]
-    cell.textLabel?.text = object.displayName
+    cell.displayName.text = object.displayName
+    cell.displayNumStops.text = RouteSegment.getNumStopsDisplay(routeSegment: object)
+    if let request = RouteSegment.getProviderIconRequestURL(route: object) {
+      cell.providerIcon.loadRequest(request)
+    }
     return cell
   }
   

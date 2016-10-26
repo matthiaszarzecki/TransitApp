@@ -35,25 +35,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PEZ-Ox-3X2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PEZ-Ox-3X2">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="XL7-fu-kj5" style="IBUITableViewCellStyleDefault" id="dZ7-Zn-zpH">
-                                        <rect key="frame" x="0.0" y="28" width="327" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="68" id="dZ7-Zn-zpH" customClass="RouteSegmentCell" customModule="TransitApp01" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dZ7-Zn-zpH" id="eTu-eB-tYd">
-                                            <frame key="frameInset" width="327" height="43"/>
+                                            <frame key="frameInset" width="375" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XL7-fu-kj5">
-                                                    <frame key="frameInset" minX="15" width="297" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgE-am-pLq">
+                                                    <frame key="frameInset" minX="8" minY="8" width="304" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZd-zz-AXB">
+                                                    <frame key="frameInset" minX="8" minY="38" width="304" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrM-EY-sov">
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" id="636-7b-emV"/>
+                                                        <constraint firstAttribute="width" constant="66" id="dvf-E8-MBL"/>
+                                                    </constraints>
+                                                </webView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qrM-EY-sov" firstAttribute="centerY" secondItem="eTu-eB-tYd" secondAttribute="centerY" id="ivW-Oa-gFm"/>
+                                                <constraint firstAttribute="trailing" secondItem="qrM-EY-sov" secondAttribute="trailing" constant="8" id="wsX-3T-6tr"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="displayName" destination="tgE-am-pLq" id="ygg-L9-DQy"/>
+                                            <outlet property="displayNumStops" destination="mZd-zz-AXB" id="2vo-bh-6ZM"/>
+                                            <outlet property="providerIcon" destination="qrM-EY-sov" id="ulw-kE-bK7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -82,11 +105,11 @@
                         <constraints>
                             <constraint firstItem="bSc-PE-WbW" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="T82-8e-5bb"/>
                             <constraint firstItem="tBK-9G-93r" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" id="V7p-FI-IsL"/>
-                            <constraint firstItem="PEZ-Ox-3X2" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="8" id="ZX1-9u-jPA"/>
+                            <constraint firstItem="PEZ-Ox-3X2" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="-16" id="ZX1-9u-jPA"/>
                             <constraint firstItem="QEP-yR-Hfx" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="dbl-v5-NEU"/>
                             <constraint firstItem="tBK-9G-93r" firstAttribute="trailing" secondItem="svH-Pt-448" secondAttribute="trailingMargin" id="gac-Sh-MTz"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="bSc-PE-WbW" secondAttribute="bottom" constant="8" id="nDm-Jz-k1k"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PEZ-Ox-3X2" secondAttribute="trailing" constant="8" id="oOb-3M-FXR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PEZ-Ox-3X2" secondAttribute="trailing" constant="-16" id="oOb-3M-FXR"/>
                             <constraint firstItem="QEP-yR-Hfx" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" id="rWF-cG-JAh"/>
                             <constraint firstItem="bSc-PE-WbW" firstAttribute="top" secondItem="PEZ-Ox-3X2" secondAttribute="bottom" constant="8" id="tnQ-0n-U6A"/>
                             <constraint firstItem="PEZ-Ox-3X2" firstAttribute="top" secondItem="tBK-9G-93r" secondAttribute="bottom" constant="8" id="v4c-KG-dtQ"/>

@@ -57,12 +57,12 @@ class MainViewController: UITableViewController {
     newRoute.segments = (data[Keys.Segments] as? Array<AnyObject>) ?? nil
     
     let providerAttributes = getProviderAttributes(id: newRoute.provider, allProviderAttributes: allProviderAttributes)
-    newRoute.provider_icon_url = (providerAttributes[Keys.ProviderIconURL] ?? nil)
+    newRoute.providerIconURL = (providerAttributes[Keys.ProviderIconURL] ?? nil)
     newRoute.disclaimer = (providerAttributes[Keys.Disclaimer] ?? nil)
-    newRoute.ios_itunes_url = (providerAttributes[Keys.IOSiTunesURL] ?? nil)
-    newRoute.ios_app_url = (providerAttributes[Keys.IOSAppURL] ?? nil)
-    newRoute.android_package_name = (providerAttributes[Keys.AndroidPackageName] ?? nil)
-    newRoute.display_name = (providerAttributes[Keys.DisplayName] ?? nil)
+    newRoute.iosItunesURL = (providerAttributes[Keys.IOSiTunesURL] ?? nil)
+    newRoute.iosAppURL = (providerAttributes[Keys.IOSAppURL] ?? nil)
+    newRoute.androidPackageName = (providerAttributes[Keys.AndroidPackageName] ?? nil)
+    newRoute.displayName = (providerAttributes[Keys.DisplayName] ?? nil)
 
     return newRoute
   }
@@ -89,6 +89,13 @@ class MainViewController: UITableViewController {
       }
     }
   }
+  
+  //display segments in table view in route view
+  //button to open in app if ios-link exists
+  //link to store otherwise
+  //check constraints & layout
+  //check all unwrapping and function returns
+  //create new names for transporttypes?
   
   // MARK: - Table View
 

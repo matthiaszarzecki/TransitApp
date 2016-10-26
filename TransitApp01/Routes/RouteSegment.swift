@@ -34,12 +34,23 @@ class RouteSegment {
       if description != "" {
         nameString += " - "
         nameString += description
-        if let numStops = segment.numStops {
-          nameString += numStops > 0 ? "\(String(describing: numStops)) \(Texts.Stops)" : ""
-        }
       }
     }
     
     return nameString
+  }
+  
+  static func getNumStopsDisplay(routeSegment: RouteSegment) -> String {
+    let numStops = routeSegment.numStops ?? 0
+    return numStops > 0 ? "\(String(describing: numStops)) \(Texts.Stops)" : ""
+  }
+  
+  static func getProviderIconRequestURL(route: RouteSegment) -> URLRequest? {
+    if let urlString = route.iconURL {
+      if let url = URL(string: urlString) {
+        return NSURLRequest(url: url) as URLRequest
+      }
+    }
+    return nil
   }
 }
