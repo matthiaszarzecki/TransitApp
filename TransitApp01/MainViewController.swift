@@ -1,6 +1,6 @@
 //
-//  MasterViewController.swift
-//  SwiftTutorial01
+//  MainViewController.swift
+//  TransitApp01
 //
 //  Created by Matthias Zarzecki on 25/10/16.
 //  Copyright © 2016 Matthias Zarzecki. All rights reserved.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MainViewController: UITableViewController {
 
-  var detailViewController: DetailViewController? = nil
+  var detailViewController: RouteViewController? = nil
   var objects = [Route]()
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.navigationItem.title = Texts.MainMenuHeader
     
     if let tansitData = getTransitData() {
       setupRoutes(transitData: tansitData)
@@ -78,14 +80,16 @@ class MasterViewController: UITableViewController {
     if segue.identifier == "showDetail" {
       if let indexPath = self.tableView.indexPathForSelectedRow {
         let navigationController = segue.destination as! UINavigationController
-        let controller = navigationController.topViewController as! DetailViewController
-        controller.detailItem = objects[(indexPath as NSIndexPath).row]
+        let controller = navigationController.topViewController as! RouteViewController
+        let detailItem = objects[(indexPath as NSIndexPath).row]
+        controller.detailItem = detailItem
+        controller.navigationItem.title = Route.getDisplayName(route: detailItem)
         controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
         controller.navigationItem.leftItemsSupplementBackButton = true
       }
     }
   }
-
+  
   // MARK: - Table View
 
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,11 +103,9 @@ class MasterViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RouteCell
     let object = objects[(indexPath as NSIndexPath).row]
-    cell.displayName!.text = object.display_name != nil ? object.display_name : "\(object.type) \(object.provider)"
-    if let url = object.provider_icon_url {
-      if let image = Utilities.getImageFromURL(url: url) {
-        cell.displayIcon!.image = image
-      }
+    cell.displayName!.text = "\(Route.getDisplayName(route: object)) - \(Route.getPriceString(route: object))"
+    if let request = Route.getProviderIconRequestURL(route: object) {
+      cell.providerIcon.loadRequest(request)
     }
     return cell
   }

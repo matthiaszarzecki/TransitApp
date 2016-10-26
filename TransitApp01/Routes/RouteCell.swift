@@ -12,5 +12,6 @@ import UIKit
 class RouteCell : UITableViewCell {
   
   @IBOutlet weak var displayName: UILabel!
+  @IBOutlet weak var providerIcon: UIWebView!
   
 }

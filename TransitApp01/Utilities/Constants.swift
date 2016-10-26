@@ -9,7 +9,6 @@
 import Foundation
 
 struct Keys {
-  
   static let ProviderAttributes = "provider_attributes"
   static let Routes = "routes"
   static let Data = "data"
@@ -21,7 +20,7 @@ struct Keys {
   static let Price = "price"
   
   static let ProviderIconURL = "provider_icon_url"
-  static let Disclaimer = "Disclaimer"
+  static let Disclaimer = "disclaimer"
   static let IOSiTunesURL = "ios_itunes_url"
   static let IOSAppURL = "ios_app_url"
   static let AndroidPackageName = "android_package_name"
@@ -29,17 +28,13 @@ struct Keys {
   
   static let Currency = "currency"
   static let Amount = "amount"
-  
-}
-
-struct Defaults {
-  
-  static let Currency = "EUR"
-  
 }
 
 struct Texts {
-  
   static let NoPrice = "Free!"
-  
+  static let MainMenuHeader = "Transit App 2000"
+}
+
+struct Defaults {
+  static let Currency = "EUR"
 }

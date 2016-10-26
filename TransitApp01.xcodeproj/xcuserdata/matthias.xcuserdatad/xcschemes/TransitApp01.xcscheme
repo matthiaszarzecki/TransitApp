@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3907AD871C6B33D1003A1709"
-            BuildableName = "SwiftTutorial01.app"
-            BlueprintName = "SwiftTutorial01"
-            ReferencedContainer = "container:SwiftTutorial01.xcodeproj">
+            BuildableName = "TransitApp01.app"
+            BlueprintName = "TransitApp01"
+            ReferencedContainer = "container:TransitApp01.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3907AD871C6B33D1003A1709"
-            BuildableName = "SwiftTutorial01.app"
-            BlueprintName = "SwiftTutorial01"
-            ReferencedContainer = "container:SwiftTutorial01.xcodeproj">
+            BuildableName = "TransitApp01.app"
+            BlueprintName = "TransitApp01"
+            ReferencedContainer = "container:TransitApp01.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
