@@ -28,9 +28,13 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
         providerIcon.loadRequest(request)
       }
       
-      let newSegment = RouteSegment()
-      newSegment.title = "Cell Title"
-      objects.append(newSegment)
+      for segment in detail.segments! {
+        if let currentSegment = segment as? Dictionary<String, AnyObject> {
+          let newSegment = RouteSegment()
+          newSegment.title = (currentSegment["name"] as? String) ?? ""
+          objects.append(newSegment)
+        }
+      }
     }
   }
   
