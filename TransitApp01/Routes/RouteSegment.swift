@@ -28,7 +28,18 @@ class RouteSegment {
   static func getSegmentDisplayName(segment: RouteSegment) -> String {
     var nameString = segment.travelMode ?? ""
     nameString += nameString != "" ? " " : ""
-    nameString +=  segment.name ?? ""
+    nameString += segment.name ?? ""
+    
+    if let description = segment.description {
+      if description != "" {
+        nameString += " - "
+        nameString += description
+        if let numStops = segment.numStops {
+          nameString += numStops > 0 ? "\(String(describing: numStops)) \(Texts.Stops)" : ""
+        }
+      }
+    }
+    
     return nameString
   }
 }
