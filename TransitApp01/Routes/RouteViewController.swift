@@ -29,13 +29,20 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
       }
       
       for segment in detail.segments! {
-        if let currentSegment = segment as? Dictionary<String, AnyObject> {
+        if let segmentData = segment as? Dictionary<String, AnyObject> {
           let newSegment = RouteSegment()
-          newSegment.title = (currentSegment["name"] as? String) ?? ""
+          newSegment.name = getSegmentName(segmentData: segmentData)
           objects.append(newSegment)
         }
       }
     }
+  }
+  
+  func getSegmentName(segmentData: Dictionary<String, AnyObject>) -> String {
+    var name = ""
+    name += (segmentData["travel_mode"] as? String) ?? ""
+    name += (segmentData["name"] as? String) ?? ""
+    return name
   }
   
   // MARK: - View Functions

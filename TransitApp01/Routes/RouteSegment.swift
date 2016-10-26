@@ -10,7 +10,13 @@ import Foundation
 
 class RouteSegment {
   
-  var title = ""
+  var name: String?
+  var numStops: Int?
+  var travelMode: String?
+  var description: String?
+  var color: String?
+  var iconURL: String?
+  var polyline: String?
   
   init() {
   }

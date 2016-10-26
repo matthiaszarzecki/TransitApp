@@ -16,12 +16,12 @@ class Route {
   var price: Dictionary<String, AnyObject>?
   var segments: Array<AnyObject>?
   
-  var provider_icon_url: String?
+  var providerIconURL: String?
   var disclaimer: String?
-  var ios_itunes_url: String?
-  var ios_app_url: String?
-  var android_package_name: String?
-  var display_name: String?
+  var iosItunesURL: String?
+  var iosAppURL: String?
+  var androidPackageName: String?
+  var displayName: String?
   
   // MARK: - Setup Functions
   
@@ -31,7 +31,8 @@ class Route {
   // MARK: - Static Functions
   
   static func getDisplayName(route: Route) -> String {
-    return route.display_name != nil ? route.display_name! : "\(route.type) \(route.provider)"
+    let displayName = route.displayName
+    return displayName != nil ? displayName! : "\(route.type) \(route.provider)"
   }
   
   static func getPriceString(route: Route) -> String {
@@ -50,7 +51,7 @@ class Route {
   }
   
   static func getProviderIconRequestURL(route: Route) -> URLRequest? {
-    if let urlString = route.provider_icon_url {
+    if let urlString = route.providerIconURL {
       if let url = URL(string: urlString) {
         return NSURLRequest(url: url) as URLRequest
       }
