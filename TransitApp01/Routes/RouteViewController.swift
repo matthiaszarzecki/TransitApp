@@ -87,8 +87,10 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
     if let request = RouteSegment.getProviderIconRequestURL(route: object) {
       cell.providerIcon.loadRequest(request)
     }
-    if let color = object.color {
-      cell.backgroundColor = UIColor.colorFromHex(hex: color)
+    if let colorString = object.color {
+      let color = UIColor.colorFromHex(hex: colorString)
+      cell.displayName.textColor = color
+      cell.displayNumStops.textColor = color
     }
     return cell
   }
