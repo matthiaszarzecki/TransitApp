@@ -167,24 +167,31 @@
                                     <frame key="frameInset" width="375" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q17-FO-waI">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="GIc-BV-zWT"/>
-                                                <constraint firstAttribute="width" constant="301" id="c4x-rf-0DX"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <webView userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uAC-0A-fOO">
-                                            <frame key="frameInset" minX="299" width="68" height="68"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRO-dR-vxV">
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q17-FO-waI">
+                                                    <frame key="frameInset" minY="21" width="375" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <webView userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uAC-0A-fOO">
+                                                    <frame key="frameInset" minX="291" minY="-3" width="68" height="68"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </webView>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </webView>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="q17-FO-waI" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="top" constant="24" id="Bzb-oB-Ljf"/>
-                                        <constraint firstItem="q17-FO-waI" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leading" constant="8" id="WxQ-VA-0hg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zRO-dR-vxV" secondAttribute="trailing" id="7J0-Q7-sSK"/>
+                                        <constraint firstItem="zRO-dR-vxV" firstAttribute="centerY" secondItem="37f-cq-3Eg" secondAttribute="centerY" id="TdW-hh-xxR"/>
+                                        <constraint firstItem="zRO-dR-vxV" firstAttribute="centerX" secondItem="37f-cq-3Eg" secondAttribute="centerX" id="ULX-5N-hGs"/>
+                                        <constraint firstItem="zRO-dR-vxV" firstAttribute="centerY" secondItem="37f-cq-3Eg" secondAttribute="centerY" id="iih-ao-zYh"/>
+                                        <constraint firstItem="zRO-dR-vxV" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="topMargin" constant="-5" id="k58-7W-9nQ"/>
+                                        <constraint firstItem="zRO-dR-vxV" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" id="oOa-tY-h4O"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
