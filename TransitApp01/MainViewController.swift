@@ -90,13 +90,6 @@ class MainViewController: UITableViewController {
     }
   }
   
-  //display segments in table view in route view
-  //button to open in app if ios-link exists
-  //link to store otherwise
-  //check constraints & layout
-  //check all unwrapping and function returns
-  //create new names for transporttypes?
-  
   // MARK: - Table View
 
   override func numberOfSections(in tableView: UITableView) -> Int {

@@ -38,14 +38,14 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
   
   func createRouteSegment(segmentData: Dictionary<String, AnyObject>) -> RouteSegment {
     let newSegment = RouteSegment()
-    newSegment.description = (segmentData["description"] as? String) ?? ""
-    newSegment.numStops = (segmentData["num_stops"] as? Int) ?? 0
-    newSegment.color = (segmentData["color"] as? String) ?? ""
-    newSegment.iconURL = (segmentData["icon_url"] as? String) ?? ""
-    newSegment.polyline = (segmentData["polyline"] as? String) ?? ""
-    newSegment.travelMode = (segmentData["travel_mode"] as? String) ?? ""
-    newSegment.stops = (segmentData["stops"] as? Array<AnyObject>) ?? nil
-    newSegment.name = (segmentData["name"] as? String) ?? ""
+    newSegment.description = (segmentData[Keys.Description] as? String) ?? ""
+    newSegment.numStops = (segmentData[Keys.NumStops] as? Int) ?? 0
+    newSegment.color = (segmentData[Keys.Color] as? String) ?? ""
+    newSegment.iconURL = (segmentData[Keys.IconURL] as? String) ?? ""
+    newSegment.polyline = (segmentData[Keys.Polyline] as? String) ?? ""
+    newSegment.travelMode = (segmentData[Keys.TravelMode] as? String) ?? ""
+    newSegment.stops = (segmentData[Keys.Stops] as? Array<AnyObject>) ?? nil
+    newSegment.name = (segmentData[Keys.Name] as? String) ?? ""
     newSegment.displayName = RouteSegment.getSegmentDisplayName(segment: newSegment)
     return newSegment
   }
@@ -86,6 +86,9 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
     cell.displayNumStops.text = RouteSegment.getNumStopsDisplay(routeSegment: object)
     if let request = RouteSegment.getProviderIconRequestURL(route: object) {
       cell.providerIcon.loadRequest(request)
+    }
+    if let color = object.color {
+      cell.backgroundColor = UIColor.colorFromHex(hex: color)
     }
     return cell
   }

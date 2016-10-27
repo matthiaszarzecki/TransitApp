@@ -28,6 +28,15 @@ struct Keys {
   
   static let Currency = "currency"
   static let Amount = "amount"
+  
+  static let Description = "description"
+  static let NumStops = "num_stops"
+  static let Color = "color"
+  static let IconURL = "icon_url"
+  static let Polyline = "polyline"
+  static let TravelMode = "travel_mode"
+  static let Stops = "stops"
+  static let Name = "name"
 }
 
 struct Texts {

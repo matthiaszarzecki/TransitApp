@@ -59,8 +59,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrM-EY-sov">
-                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <webView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qrM-EY-sov">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="59" id="636-7b-emV"/>
                                                         <constraint firstAttribute="width" constant="66" id="dvf-E8-MBL"/>
