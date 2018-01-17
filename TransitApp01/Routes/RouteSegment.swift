@@ -9,7 +9,6 @@
 import Foundation
 
 class RouteSegment {
-  
   var displayName: String?
   var name: String?
   var numStops: Int?

@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 
 class RouteSegmentCell : UITableViewCell {
-  
   @IBOutlet weak var displayName: UILabel!
   @IBOutlet weak var displayNumStops: UILabel!
   @IBOutlet weak var providerIcon: UIWebView!
-  
 }

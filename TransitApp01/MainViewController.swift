@@ -9,7 +9,6 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-
   var detailViewController: RouteViewController? = nil
   var objects = [Route]()
 
@@ -111,7 +110,6 @@ class MainViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
     return true
   }
   

@@ -22,6 +22,7 @@
 		6E5B73871DC14B8C00A02E15 /* RouteSegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B73861DC14B8C00A02E15 /* RouteSegmentCell.swift */; };
 		6E5B73891DC164D500A02E15 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B73881DC164D500A02E15 /* UIColor-Extension.swift */; };
 		6EE565711DBFCF1100A13031 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3907AD991C6B33D1003A1709 /* Info.plist */; };
+		CC0D1ADB200F9EE900C200A3 /* DisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D1ADA200F9EE900C200A3 /* DisplayName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		6E5B73821DC0317800A02E15 /* RouteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCell.swift; sourceTree = "<group>"; };
 		6E5B73861DC14B8C00A02E15 /* RouteSegmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteSegmentCell.swift; sourceTree = "<group>"; };
 		6E5B73881DC164D500A02E15 /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		CC0D1ADA200F9EE900C200A3 /* DisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				398BDD021DC0BFB000999026 /* Data */,
 				398BDD041DC0C01500999026 /* Routes */,
 				398BDD051DC0C06E00999026 /* Utilities */,
+				CC0D1ADA200F9EE900C200A3 /* DisplayName.swift */,
 			);
 			path = TransitApp01;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				TargetAttributes = {
 					3907AD871C6B33D1003A1709 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = QDUTEX33CU;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -205,6 +209,7 @@
 				6E5B737B1DC0030000A02E15 /* Utilities.swift in Sources */,
 				6E5B737F1DC0063300A02E15 /* Route.swift in Sources */,
 				3907AD8C1C6B33D1003A1709 /* AppDelegate.swift in Sources */,
+				CC0D1ADB200F9EE900C200A3 /* DisplayName.swift in Sources */,
 				6E5B73811DC00C6200A02E15 /* Constants.swift in Sources */,
 				6E5B73831DC0317800A02E15 /* RouteCell.swift in Sources */,
 				398BDD281DC0E84B00999026 /* RouteSegment.swift in Sources */,
@@ -320,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QDUTEX33CU;
 				INFOPLIST_FILE = "$(SRCROOT)/TransitApp01/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewongamedesign.TransitApp01;
@@ -333,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QDUTEX33CU;
 				INFOPLIST_FILE = "$(SRCROOT)/TransitApp01/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewongamedesign.TransitApp01;

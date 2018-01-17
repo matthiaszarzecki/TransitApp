@@ -9,7 +9,6 @@
 import UIKit
 
 class RouteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
   @IBOutlet weak var price: UILabel!
   @IBOutlet weak var disclaimer: UILabel!
   @IBOutlet weak var providerIcon: UIWebView!
@@ -99,5 +98,4 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
     // Return false if you do not want the specified item to be editable.
     return true
   }
-  
 }

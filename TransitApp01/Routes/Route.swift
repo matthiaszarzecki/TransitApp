@@ -9,7 +9,6 @@
 import Foundation
 
 class Route {
-  
   var type = ""
   var provider = ""
   var properties = ""
@@ -32,7 +31,7 @@ class Route {
   
   static func getDisplayName(route: Route) -> String {
     let displayName = route.displayName
-    return displayName != nil ? displayName! : "\(route.type) \(route.provider)"
+    return displayName != nil ? displayName! : DisplayName.getDisplayName(provider: route.provider, type: route.type)
   }
   
   static func getPriceString(route: Route) -> String {

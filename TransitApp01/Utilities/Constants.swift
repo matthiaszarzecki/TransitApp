@@ -42,7 +42,7 @@ struct Keys {
 struct Texts {
   static let NoPrice = "Free!"
   static let Stops = "Stops"
-  static let MainMenuHeader = "Transit App 2000"
+  static let MainMenuHeader = "Transit App"
 }
 
 struct Defaults {
