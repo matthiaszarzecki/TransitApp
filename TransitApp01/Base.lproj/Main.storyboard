@@ -63,11 +63,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <webView userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrM-EY-sov">
-                                                    <rect key="frame" x="305" y="2" width="62" height="62"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <webView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qrM-EY-sov">
+                                                    <rect key="frame" x="298" y="2" width="62" height="62"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="62" id="ZmK-s5-Tez"/>
+                                                        <constraint firstAttribute="width" constant="62" id="yG3-Pn-oz8"/>
+                                                    </constraints>
                                                 </webView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qrM-EY-sov" firstAttribute="centerY" secondItem="eTu-eB-tYd" secondAttribute="centerY" id="N1F-AM-Ii6"/>
+                                                <constraint firstAttribute="trailing" secondItem="qrM-EY-sov" secondAttribute="trailing" constant="15" id="bf3-os-ZbH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="displayName" destination="tgE-am-pLq" id="ygg-L9-DQy"/>
@@ -87,7 +94,7 @@
                                     <constraint firstAttribute="width" constant="343" id="5WD-V2-ofG"/>
                                     <constraint firstAttribute="height" constant="21" id="Wb2-1k-lK4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
